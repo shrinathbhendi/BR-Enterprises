@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initProductFilter();
   initContactForm();
   initBackToTop();
+  initScrollProgress();
   initActiveNavOnScroll();
   initParallax();
   initGalleryLightbox();
@@ -94,6 +95,7 @@ function initScrollAnimations() {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        (function (t) { setTimeout(function () { t.style.transitionDelay = ""; }, 1200); })(entry.target);
         observer.unobserve(entry.target);
       }
     });
@@ -212,6 +214,20 @@ function initContactForm() {
   }
 }
 
+/* ========== SCROLL PROGRESS BAR ========== */
+function initScrollProgress() {
+  var bar = document.createElement("div");
+  bar.className = "scroll-progress";
+  document.body.appendChild(bar);
+  function update() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+}
+
 /* ========== BACK TO TOP ========== */
 function initBackToTop() {
   var btn = document.getElementById("backToTop");
@@ -252,7 +268,6 @@ function initActiveNavOnScroll() {
 function initParallax() {
   var heroSection = document.querySelector(".hero-section");
   if (!heroSection) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (window.innerWidth < 768) return;
 
   window.addEventListener("scroll", function () {
