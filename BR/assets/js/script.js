@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    BR Enterprises - Main JavaScript
    ============================================================ */
 "use strict";
@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initActiveNavOnScroll();
   initParallax();
   initGalleryLightbox();
+  initHeroSlider();
   addKeyframes();
 });
 
@@ -35,17 +36,48 @@ function initMobileNav() {
   var mainNav = document.getElementById("mainNav");
   if (!hamburger || !mainNav) return;
 
+  var dropdownItem = mainNav.querySelector(".has-dropdown");
+
   hamburger.addEventListener("click", function () {
     hamburger.classList.toggle("active");
     mainNav.classList.toggle("open");
     document.body.classList.toggle("nav-open");
+    if (!mainNav.classList.contains("open") && dropdownItem) {
+      dropdownItem.classList.remove("open");
+    }
   });
 
-  mainNav.querySelectorAll(".nav-link").forEach(function (link) {
+  var navCloseBtn = document.getElementById("navCloseBtn");
+  if (navCloseBtn) {
+    navCloseBtn.addEventListener("click", function () {
+      hamburger.classList.remove("active");
+      mainNav.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      if (dropdownItem) dropdownItem.classList.remove("open");
+    });
+  }
+
+  // Handle dropdown toggle on mobile
+  mainNav.querySelectorAll(".has-dropdown").forEach(function (dd) {
+    var trigger = dd.querySelector(".nav-link");
+    if (trigger) {
+      trigger.addEventListener("click", function (e) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          e.stopPropagation();
+          dd.classList.toggle("open");
+        }
+      });
+    }
+  });
+
+  // Close mobile nav when clicking normal links or product links inside the mega-menu
+  mainNav.querySelectorAll(".nav-link:not(.has-dropdown > .nav-link), .mega-menu a").forEach(function (link) {
     link.addEventListener("click", function () {
       hamburger.classList.remove("active");
       mainNav.classList.remove("open");
       document.body.classList.remove("nav-open");
+      if (dropdownItem) dropdownItem.classList.remove("open");
     });
   });
 
@@ -54,6 +86,7 @@ function initMobileNav() {
       hamburger.classList.remove("active");
       mainNav.classList.remove("open");
       document.body.classList.remove("nav-open");
+      if (dropdownItem) dropdownItem.classList.remove("open");
     }
   });
 }
@@ -140,33 +173,69 @@ function initCounterAnimation() {
 function initProductFilter() {
   var filterBtns = document.querySelectorAll(".filter-btn");
   var productCards = document.querySelectorAll(".product-card");
-  if (!filterBtns.length || !productCards.length) return;
+  var searchInput = document.getElementById("productSearch");
+  if (!productCards.length) return;
 
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      filterBtns.forEach(function (b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      var filter = btn.getAttribute("data-filter");
+  var currentFilter = "all";
+  var currentSearch = "";
 
-      productCards.forEach(function (card, i) {
-        var matches = filter === "all" || card.getAttribute("data-category") === filter;
-        if (matches) {
-          card.style.display = "flex";
-          card.style.opacity = "0";
-          card.style.transform = "translateY(20px)";
-          setTimeout(function () {
-            card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          }, i * 60);
-        } else {
-          card.style.opacity = "0";
-          card.style.transform = "scale(0.95)";
-          setTimeout(function () { card.style.display = "none"; }, 300);
-        }
+  function applyFilterAndSearch() {
+    var query = currentSearch.trim().toLowerCase();
+    var visibleCount = 0;
+
+    productCards.forEach(function (card, i) {
+      var category = card.getAttribute("data-category") || "";
+      var text = card.textContent.toLowerCase();
+      var matchesCategory = currentFilter === "all" || category === currentFilter;
+      var matchesSearch = !query || text.indexOf(query) !== -1;
+
+      if (matchesCategory && matchesSearch) {
+        visibleCount++;
+        card.style.display = "flex";
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        setTimeout(function () {
+          card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }, (visibleCount % 8) * 50);
+      } else {
+        card.style.opacity = "0";
+        card.style.transform = "scale(0.95)";
+        setTimeout(function () { card.style.display = "none"; }, 250);
+      }
+    });
+  }
+
+  if (filterBtns.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterBtns.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        currentFilter = btn.getAttribute("data-filter") || "all";
+        applyFilterAndSearch();
       });
     });
-  });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function (e) {
+      currentSearch = e.target.value || "";
+      applyFilterAndSearch();
+    });
+  }
+
+  // Pre-filter from URL parameter or hash (e.g. ?category=speed or #speed)
+  try {
+    var urlParams = new URLSearchParams(window.location.search);
+    var targetCategory = urlParams.get("category") || (window.location.hash ? window.location.hash.replace("#", "") : null);
+    if (targetCategory) {
+      var matchingBtn = document.querySelector('.filter-btn[data-filter="' + targetCategory + '"]');
+      if (matchingBtn) {
+        matchingBtn.click();
+      }
+    }
+  } catch (err) {}
 }
 
 /* ========== CONTACT FORM ========== */
@@ -174,6 +243,27 @@ function initContactForm() {
   var form = document.getElementById("contactForm");
   var successMsg = document.getElementById("formSuccess");
   var submitBtn = document.getElementById("submitBtn");
+  var productSelect = document.getElementById("fproduct");
+
+  // Pre-select product from URL parameter ?product=...
+  if (productSelect) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var productParam = urlParams.get("product");
+      if (productParam) {
+        var cleanParam = decodeURIComponent(productParam).toLowerCase();
+        for (var i = 0; i < productSelect.options.length; i++) {
+          var optText = productSelect.options[i].text.toLowerCase();
+          if (optText.indexOf(cleanParam) !== -1 || cleanParam.indexOf(optText) !== -1) {
+            productSelect.selectedIndex = i;
+            productSelect.style.borderColor = "var(--primary)";
+            break;
+          }
+        }
+      }
+    } catch (err) {}
+  }
+
   if (!form) return;
 
   form.addEventListener("submit", function (e) {
@@ -336,6 +426,10 @@ function addKeyframes() {
   var header = document.getElementById("siteHeader");
   if (!header) return;
   window.addEventListener("scroll", function () {
+    if (window.innerWidth <= 900 || document.body.classList.contains("nav-open")) {
+      header.style.transform = "translateY(0)";
+      return;
+    }
     var current = window.scrollY;
     if (current > 200) {
       if (current > lastScroll + 4) header.style.transform = "translateY(-100%)";
@@ -352,3 +446,18 @@ document.querySelectorAll(".product-specs span").forEach(function (span) {
   span.style.cursor = "help";
   span.title = span.textContent.trim();
 });
+
+/* ========== HERO BACKGROUND SLIDESHOW LOOP ========== */
+function initHeroSlider() {
+  var slides = document.querySelectorAll(".hero-slide");
+  if (!slides || slides.length < 2) return;
+
+  var currentIndex = 0;
+  var intervalTime = 4500; // 4.5 seconds per photo
+
+  setInterval(function () {
+    slides[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add("active");
+  }, intervalTime);
+}

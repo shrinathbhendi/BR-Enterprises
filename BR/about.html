@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn about BR Enterprises, an established road safety equipment manufacturer in Pune, India. Specializing in certified speed breakers, traffic cones, road studs, and access control.">
+  <meta name="keywords"
+    content="about BR Enterprises, road safety equipment manufacturer, traffic safety Pune, speed breaker manufacturer">
+  <title>About Us | BR Enterprises - Road Safety Solutions</title>
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ========== ANNOUNCEMENT BAR ========== -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-content">
+      <a href="tel:+919546469292">📞 +91 95464 69292</a>
+      <span> | </span>
+      <a href="mailto:info@3rroadsafety.com">✉ info@3rroadsafety.com</a>
+    </div>
+    <button class="close-bar" onclick="document.getElementById('announcementBar').style.display='none'">✕</button>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link">
+          <img src="assets/img/logo.png" alt="BR Enterprises Logo" class="logo-img">
+        </a>
+      </div>
+
+      <nav class="main-nav" id="mainNav">
+        <button class="nav-close-btn" id="navCloseBtn" aria-label="Close Menu">&times;</button>
+        <ul class="nav-list">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li class="has-dropdown">
+            <a href="products.html" class="nav-link">Product <i class="fas fa-chevron-down"></i></a>
+            <div class="mega-menu">
+              <div class="mega-col">
+                <h4 class="mega-title">Speed Control</h4>
+                <ul>
+                  <li><a href="products.html?category=speed"><i class="fas fa-road"></i> Rubber Speed Breaker</a></li>
+                  <li><a href="products.html?category=speed"><i class="fas fa-road"></i> Plastic Speed Breaker</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Reflectors & Markers</h4>
+                <ul>
+                  <li><a href="products.html?category=reflectors"><i class="fas fa-circle"></i> Cat Eye Reflector</a></li>
+                  <li><a href="products.html?category=reflectors"><i class="fas fa-sun"></i> Solar Cat Eye</a></li>
+                  <li><a href="products.html?category=reflectors"><i class="fas fa-paint-brush"></i> Thermoplastic Road Paint</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Traffic Management</h4>
+                <ul>
+                  <li><a href="products.html?category=traffic"><i class="fas fa-traffic-light"></i> Traffic Cones</a></li>
+                  <li><a href="products.html?category=traffic"><i class="fas fa-eye"></i> Convex Mirror</a></li>
+                  <li><a href="products.html?category=traffic"><i class="fas fa-border-all"></i> Road Barrier</a></li>
+                  <li><a href="products.html?category=traffic"><i class="fas fa-arrows-alt-v"></i> Flexible Spring Post</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Access Control</h4>
+                <ul>
+                  <li><a href="products.html?category=access"><i class="fas fa-shield-alt"></i> Boom Barrier</a></li>
+                  <li><a href="products.html?category=access"><i class="fas fa-circle-dot"></i> Steel Bollard</a></li>
+                  <li><a href="products.html?category=access"><i class="fas fa-people-arrows"></i> Queue Manager</a></li>
+                  <li><a href="products.html?category=access"><i class="fas fa-shield-alt"></i> Rubber Corner Guard</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="index.html#clients" class="nav-link">Client</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+919546469292" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== PAGE BANNER ========== -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="banner-content text-center">
+        <div class="section-badge">About Us</div>
+        <h1 class="page-title">About <span class="highlight">BR Enterprises</span></h1>
+        <p class="page-sub">Dedicated manufacturer and supplier of certified road safety and traffic management products in India.</p>
+        <div class="breadcrumb">
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          <span>/</span>
+          <span class="current">About Us</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURE STRIP ========== -->
+  <section class="feature-strip">
+    <div class="strip-inner">
+      <div class="strip-item">
+        <i class="fas fa-certificate"></i>
+        <span>ISO Certified Quality</span>
+      </div>
+      <div class="strip-item">
+        <i class="fas fa-truck-fast"></i>
+        <span>Pan-India Delivery</span>
+      </div>
+      <div class="strip-item">
+        <i class="fas fa-shield-halved"></i>
+        <span>BIS & IRC Standards</span>
+      </div>
+      <div class="strip-item">
+        <i class="fas fa-tags"></i>
+        <span>Factory-Direct Pricing</span>
+      </div>
+      <div class="strip-item">
+        <i class="fas fa-headset"></i>
+        <span>24/7 Support</span>
+      </div>
+
+      <!-- Duplicated for seamless infinite loop on mobile screens only -->
+      <div class="strip-item strip-clone" aria-hidden="true">
+        <i class="fas fa-certificate"></i>
+        <span>ISO Certified Quality</span>
+      </div>
+      <div class="strip-item strip-clone" aria-hidden="true">
+        <i class="fas fa-truck-fast"></i>
+        <span>Pan-India Delivery</span>
+      </div>
+      <div class="strip-item strip-clone" aria-hidden="true">
+        <i class="fas fa-shield-halved"></i>
+        <span>BIS & IRC Standards</span>
+      </div>
+      <div class="strip-item strip-clone" aria-hidden="true">
+        <i class="fas fa-tags"></i>
+        <span>Factory-Direct Pricing</span>
+      </div>
+      <div class="strip-item strip-clone" aria-hidden="true">
+        <i class="fas fa-headset"></i>
+        <span>24/7 Support</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INFO 1: COMPANY BACKGROUND & SPECIALIZATION ========== -->
+  <section class="about-section about-page-intro">
+    <!-- Animated Background Shapes -->
+    <div class="section-bg-deco">
+      <div class="deco-shape deco-circle-1"></div>
+      <div class="deco-shape deco-ring-1"></div>
+      <div class="deco-shape deco-dots-1"></div>
+      <div class="deco-shape deco-line-1"></div>
+    </div>
+
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-page-photo-frame">
+            <!-- Unique Architectural Multi-Layer Backdrop (No Text) -->
+            <div class="app-bg-layer layer-charcoal-plate"></div>
+            <div class="app-bg-layer layer-gold-frame"></div>
+            <div class="app-bg-layer layer-dot-canvas"></div>
+            <div class="app-bg-layer layer-hazard-strip"></div>
+            <div class="app-bg-layer layer-corner-bracket tl"></div>
+            <div class="app-bg-layer layer-corner-bracket br"></div>
+            <div class="app-bg-layer layer-floating-badge"><span class="badge-core"></span></div>
+
+            <div class="about-page-photo-wrap">
+              <img src="assets/img/about.png" alt="BR Enterprises road safety manufacturing and highway infrastructure"
+                class="about-page-photo" loading="lazy" width="1536" height="1024">
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-badge">1. Who We Are</div>
+          <h2 class="section-title">Dedicated Road Safety <span class="highlight">Manufacturing</span></h2>
+          <p class="about-lead">
+            Based in Pune, Maharashtra, <strong>BR Enterprises</strong> specializes in engineering and supplying reliable road safety infrastructure across India. We cater to commercial hubs, industrial facilities, residential townships, and road development projects.
+          </p>
+          <p class="about-body">
+            Our focus is straightforward: providing durable, tested road safety assets—from heavy-duty modular rubber speed breakers and high-rebound delineators to reflective road studs and barrier systems—built to endure heavy traffic and harsh weather conditions.
+          </p>
+          <div class="about-features">
+            <div class="about-feature-item">
+              <div class="af-icon"><i class="fas fa-industry"></i></div>
+              <div class="af-text">
+                <h4>Engineered for Durability</h4>
+                <p>Heavy-duty rubber and plastic polymers formulated to withstand extreme traffic loads and UV exposure.</p>
+              </div>
+            </div>
+            <div class="about-feature-item">
+              <div class="af-icon"><i class="fas fa-shield-alt"></i></div>
+              <div class="af-text">
+                <h4>Quality Benchmarked</h4>
+                <p>Strictly compliant with IRC guidelines and BIS specifications for municipal and corporate approvals.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INFO 2: MISSION & VISION ========== -->
+  <section class="mv-section">
+    <!-- Animated Background Shapes -->
+    <div class="section-bg-deco">
+      <div class="deco-shape mv-orb-1"></div>
+      <div class="deco-shape mv-orb-2"></div>
+      <div class="deco-shape mv-grid-pat"></div>
+      <div class="deco-shape mv-diamond-float"></div>
+    </div>
+
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">2. Purpose & Direction</div>
+        <h2 class="section-title">Our Mission & <span class="highlight">Vision</span></h2>
+        <p class="section-sub">Guiding principles focused on road accident prevention and product dependability.</p>
+      </div>
+
+      <div class="mv-grid">
+        <!-- Mission Card -->
+        <div class="mv-card">
+          <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+          <h3 class="mv-title">Our Mission</h3>
+          <p class="mv-desc">To manufacture reliable, certified road safety products that actively reduce vehicular accidents, calm traffic speeds, and protect pedestrians and motorists on roads across India.</p>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="mv-card">
+          <div class="mv-icon"><i class="fas fa-eye"></i></div>
+          <h3 class="mv-title">Our Vision</h3>
+          <p class="mv-desc">To be India's benchmark manufacturer of durable, affordable road safety infrastructure, known for quality materials, honest pricing, and consistent on-time delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INFO 3: OUR 3 CORE PROMISES ========== -->
+  <section class="quality-section">
+    <!-- Animated Background Shapes -->
+    <div class="section-bg-deco">
+      <div class="deco-shape qs-orb-1"></div>
+      <div class="deco-shape qs-hazard-band"></div>
+      <div class="deco-shape qs-cross-mark c1"></div>
+      <div class="deco-shape qs-cross-mark c2"></div>
+    </div>
+
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">3. Why Work With Us</div>
+        <h2 class="section-title">Our 3 Core <span class="highlight">Commitments</span></h2>
+        <p class="section-sub">What you can count on when partnering with BR Enterprises.</p>
+      </div>
+
+      <div class="quality-grid">
+        <div class="quality-card">
+          <div class="quality-card-icon"><i class="fas fa-industry"></i></div>
+          <h4>Factory-Direct Quality</h4>
+          <p>We manufacture directly to maintain strict material quality and provide competitive pricing without intermediaries.</p>
+        </div>
+
+        <div class="quality-card">
+          <div class="quality-card-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Standard Compliance</h4>
+          <p>Our speed control and road delineation products adhere to relevant IRC and BIS guidelines for durability and safety.</p>
+        </div>
+
+        <div class="quality-card">
+          <div class="quality-card-icon"><i class="fas fa-truck-fast"></i></div>
+          <h4>Pan-India Delivery</h4>
+          <p>Ready inventory and dependable logistics support ensure smooth dispatches for urgent orders and bulk requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo">
+              <img src="assets/img/logo.png" alt="BR Enterprises" class="footer-logo-img">
+              <div>
+                <span class="footer-brand-name">BR Enterprises</span>
+              </div>
+            </div>
+            <p class="footer-about">Leading manufacturer and supplier of premium road safety products in India. Committed to making every road safer for everyone.</p>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#home">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="index.html#why-us">Why Choose Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-title">Our Products</h4>
+            <ul class="footer-links">
+              <li><a href="products.html">Rubber Speed Breaker</a></li>
+              <li><a href="products.html">Plastic Speed Breaker</a></li>
+              <li><a href="products.html">Traffic Cones</a></li>
+              <li><a href="products.html">Convex Mirror</a></li>
+              <li><a href="products.html">Boom Barrier</a></li>
+              <li><a href="products.html">Solar Cat Eye</a></li>
+              <li><a href="products.html">Steel Bollard</a></li>
+              <li><a href="products.html">Road Barriers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-title">Contact Info</h4>
+            <ul class="footer-contact-list">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Pune, Maharashtra, India – 411021</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+919546469292">+91 95464 69292</a>
+              </li>
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/919546469292">WhatsApp Us</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@3rroadsafety.com">info@3rroadsafety.com</a>
+              </li>
+              <li>
+                <i class="fas fa-clock"></i>
+                <span>Mon–Sat: 9 AM – 6 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Buttons (stacked) -->
+  <div class="float-stack">
+    <button class="float-btn back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="tel:+919546469292" class="float-btn call-float" aria-label="Call us">
+      <i class="fas fa-phone"></i>
+      <span class="float-tooltip">Call us</span>
+    </a>
+    <a href="https://wa.me/919546469292" class="float-btn whatsapp-float" target="_blank" rel="noopener"
+      aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="float-tooltip">Chat with us!</span>
+    </a>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
