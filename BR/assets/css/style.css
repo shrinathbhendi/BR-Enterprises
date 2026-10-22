@@ -2363,21 +2363,55 @@ textarea {
 }
 
 .footer-bottom {
-  background: #f5f5f8;
-  padding: 20px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  text-align: center;
+  background: #0d121f;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .footer-bottom p {
-  font-size: 12px;
-  color: var(--nav-text-muted);
-  margin-bottom: 4px;
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
 }
 
-.footer-tags {
-  color: rgba(26, 26, 46, 0.45) !important;
-  font-size: 11px !important;
+.footer-copy {
+  color: #94a3b8;
+}
+
+.footer-dev {
+  color: #94a3b8;
+}
+
+.footer-dev strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-dev a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-dev a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 8px;
+  }
 }
 
 /* ========== FLOATING ELEMENTS ========== */

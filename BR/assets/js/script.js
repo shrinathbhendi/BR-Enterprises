@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initParallax();
   initGalleryLightbox();
   initHeroSlider();
+  initFooterYear();
   addKeyframes();
 });
 
@@ -460,4 +461,12 @@ function initHeroSlider() {
     currentIndex = (currentIndex + 1) % slides.length;
     slides[currentIndex].classList.add("active");
   }, intervalTime);
+}
+
+/* ========== DYNAMIC FOOTER YEAR ========== */
+function initFooterYear() {
+  var year = new Date().getFullYear();
+  document.querySelectorAll(".current-year").forEach(function (el) {
+    el.textContent = year;
+  });
 }
